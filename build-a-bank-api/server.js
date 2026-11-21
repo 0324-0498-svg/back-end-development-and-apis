@@ -20,13 +20,9 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.get("/accounts", async (req, res, next) => {
-  try {
-    const accounts = await getAccounts();
-    res.json(accounts);
-  } catch (err) {
-    next(err);
-  }
+app.get("/accounts", async (req, res) => {
+  const accounts = await getAccounts();
+  res.json(accounts);
 });
 
 app.get("/accounts/:id", async (req, res, next) => {
