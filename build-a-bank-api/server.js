@@ -25,8 +25,7 @@ app.get("/accounts", async (req, res) => {
   res.json(accounts);
 });
 
-app.get("/accounts/:id", async (req, res, next) => {
-  try {
+app.get("/accounts/:id", async (req, res) => {
     const accounts = await getAccounts();
     const account = accounts.find((a) => a.id === parseInt(req.params.id));
 
@@ -37,9 +36,6 @@ app.get("/accounts/:id", async (req, res, next) => {
     }
 
     res.json(account);
-  } catch (err) {
-    next(err);
-  }
 });
 
 app.post("/transfer", async (req, res, next) => {
