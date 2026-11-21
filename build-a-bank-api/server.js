@@ -26,16 +26,16 @@ app.get("/accounts", async (req, res) => {
 });
 
 app.get("/accounts/:id", async (req, res) => {
-    const accounts = await getAccounts();
-    const account = accounts.find((a) => a.id === parseInt(req.params.id));
+  const accounts = await getAccounts();
+  const account = accounts.find((a) => a.id === parseInt(req.params.id));
 
-    if (!account) {
-      const err = new Error("Account not found");
-      err.status = 404;
-      throw err;
-    }
+  if (!account) {
+    const err = new Error("Account not found");
+    err.status = 404;
+    throw err;
+  }
 
-    res.json(account);
+  res.json(account);
 });
 
 app.post("/transfer", async (req, res, next) => {
