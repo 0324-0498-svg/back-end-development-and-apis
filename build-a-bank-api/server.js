@@ -8,7 +8,7 @@ app.use(express.json());
 app.set("json spaces", 2);
 
 app.get("/", (req, res) => {
-  res.send("Tiny Bank API running...");
+  res.send("Tiny Bank API (Express 5) running...");
 });
 
 app.get("/health", (req, res) => {
