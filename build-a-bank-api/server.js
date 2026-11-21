@@ -38,8 +38,7 @@ app.get("/accounts/:id", async (req, res) => {
   res.json(account);
 });
 
-app.post("/transfer", async (req, res, next) => {
-  try {
+app.post("/transfer", async (req, res) => {
     const { fromId, toId, amount } = req.body;
 
     if (!fromId || !toId || !amount) {
@@ -90,9 +89,6 @@ app.post("/transfer", async (req, res, next) => {
       senderNewBalance: sender.balance,
       recipientNewBalance: recipient.balance,
     });
-  } catch (err) {
-    next(err);
-  }
 });
 
 // app.get("/broken", (req, res, next) => {
